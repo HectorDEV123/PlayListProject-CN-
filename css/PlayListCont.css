@@ -1,0 +1,44 @@
+#PlaylistCSS {
+  height: 200px;
+  width: 200px;
+  background-color: gray;
+  height: 333px;
+  width: 256px;
+  background-color: black;
+  display: inline-block;
+  margin: 25px;
+
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+#PlaylistCSS img {
+  height: 100px;
+  height: 175px;
+  margin-left: 70px;
+  margin: 40px;
+  border-radius: 5px;
+}
+
+#PlaylistCSS > a {
+  color: white;
+  text-decoration: none;
+}
+
+#PlaylistCSS > a:hover {
+  color: yellow;
+}
+
+#PlaylistCSS > h5 {
+  padding-bottom: 15px;
+}
+
+p {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  padding-left: 10px;
+}

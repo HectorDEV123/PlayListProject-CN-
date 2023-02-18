@@ -1,0 +1,116 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap');
+
+
+.createPlaylistCont label {
+  margin: 5px 10px 5px 0;
+  box-sizing: border-box;
+}
+
+.createPlaylistCont input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.createPlaylistCont button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.createPlaylistCont button:hover {
+  background-color: royalblue;
+}
+
+.divider {
+  height: 20px;
+
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+}
+
+.Container > img {
+  height: 175px;
+  width: 175px;
+  background-color: black;
+}
+
+.Container {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.createPlaylistCont input {
+  margin: 20px;
+}
+
+button {
+  margin: 10px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+/* Song CSS */
+
+.divider {
+  margin-bottom: 0px;
+}
+
+#SongIconID {
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#SongNameID {
+  display: inline-block;
+  margin: 50px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 50px;
+}
+
+#ArtistNameID {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 90px;
+}
+
+img {
+  height: 100px;
+  height: 175px;
+  margin-left: 70px;
+  margin: 40px;
+  border-radius: 5px;
+}
+
+#ImgCont {
+  display: inline-block;
+}
+
+.songDivider {
+  height: 10px;
+  width: 100%;
+  background-color: greenyellow
+}
+
+.SongIconContainer{
+  display: inline-block;
+}
