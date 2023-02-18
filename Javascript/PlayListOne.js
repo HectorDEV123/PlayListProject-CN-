@@ -3,88 +3,64 @@ const SongNameDOM = document.getElementById("PlayListSongNameInput");
 const ArtistNameDOM = document.getElementById("PlayListArtistInput");
 const SongURLDOM = document.getElementById("PlayListURLInput");
 const AddSongDOM = document.getElementById("AddSongDOM");
+const ButtonFromDOM = document.getElementById("PlayButton");
+const iFrameFromDOM = document.getElementById("iframeDOM");
 
-import Localbase from "../";
-let db = new Localbase(db)
+console.log(ButtonFromDOM);
 
-function CreateSong(){
-
+function CreateSong() {
   // * Temporary Values
 
-  let TempValueSongIcon = SongIconDOM.value; 
-  let TempValueSongName = SongNameDOM.value; 
-  let TempValueArtistName = ArtistNameDOM.value; 
-
-
+  let TempValueSongIcon = SongIconDOM.value;
+  let TempValueSongName = SongNameDOM.value;
+  let TempValueArtistName = ArtistNameDOM.value;
+  let TempURLValue = SongURLDOM.value;
 
   // ! Creates New Element for each song
-
 
   const NewSongContainer = document.createElement("div");
   const NewSongIconContainer = document.createElement("div");
   const NewSongIcon = document.createElement("img");
   const NewSongName = document.createElement("h5");
   const NewSongArtistName = document.createElement("h5");
-  const NewSongURL = null;
+  const NewPlayButtonLink = document.createElement("a");
+  const PlayButton = document.createElement("button");
   const NewSongDivider = document.createElement("div");
-
 
   // * Update Inner HTML
 
   NewSongIcon.src = TempValueSongIcon;
   NewSongName.innerHTML = TempValueSongName;
   NewSongArtistName.innerHTML = TempValueArtistName;
+  PlayButton.innerHTML = "Click to Play";
+  // NewPlayButtonLink.href = TempURLValue
 
   // * Assigns Classes & IDs
 
-  NewSongIconContainer.className = "SongIconContainer"
+  NewSongIconContainer.className = "SongIconContainer";
   NewSongIcon.id = "SongIconID";
   NewSongName.id = "SongNameID";
-  NewSongArtistName.id = "ArtistNameID"
-  NewSongDivider.className = "songDivider"
+  NewSongArtistName.id = "ArtistNameID";
+  NewSongDivider.className = "songDivider";
+  PlayButton.id = "PlayButton";
+  NewPlayButtonLink.id = "LinkSRC";
 
-
-  // * Container Appendiction 
+  // * Container Appendiction
 
   document.body.appendChild(NewSongContainer);
   NewSongContainer.appendChild(NewSongIconContainer);
   NewSongIconContainer.appendChild(NewSongIcon);
   NewSongContainer.appendChild(NewSongName);
   NewSongContainer.appendChild(NewSongArtistName);
-  document.body.appendChild(NewSongDivider)
+  document.body.appendChild(NewSongDivider);
+  NewSongContainer.appendChild(NewPlayButtonLink);
+  NewPlayButtonLink.appendChild(PlayButton);
 
-  let RandomNumber = Math.floor(Math.random() * 10);
-  console.log(RandomNumber)
+  const GetElement = document.getElementById("PlayButton");
 
-  // * Sets to Map
-
-  let myArray = new Array();
-  myArray.push(TempValueSongIcon, TempValueSongName, TempValueArtistName);
-  NewSongMap.set(RandomNumber, myArray);
-
- 
-  console.log(NewSongMap)
-  LocalStoragePush();
-
-
-  function LocalStoragePush(){
-
-    db.collection("users").add({
-
-      id: 1,
-      name: "Bill",
-      age: 47,
-    })
-
-  }
-
-
+  GetElement.onclick = function () {
+    iFrameFromDOM.src = "httpsss-1je-1w";
+  };
 }
-
-let NewSongMap = new Map([
-
- 
-])
-
 
 AddSongDOM.addEventListener("click", CreateSong);
