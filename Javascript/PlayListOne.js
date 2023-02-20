@@ -5,8 +5,9 @@ const SongURLDOM = document.getElementById("PlayListURLInput");
 const AddSongDOM = document.getElementById("AddSongDOM");
 const ButtonFromDOM = document.getElementById("PlayButton");
 const iFrameFromDOM = document.getElementById("iframeDOM");
+let SongsArray = [];
+let KeyID;
 
-console.log(ButtonFromDOM);
 
 function CreateSong() {
   // * Temporary Values
@@ -61,6 +62,11 @@ function CreateSong() {
   GetElement.onclick = function () {
     iFrameFromDOM.src = "httpsss-1je-1w";
   };
+
+
+
 }
+
+
 
 AddSongDOM.addEventListener("click", CreateSong);

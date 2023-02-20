@@ -126,3 +126,4 @@ function PlaylistThreeRestore() {
   NewPlayListContainer.appendChild(ViewPlayListLink);
   ViewPlayListLink.appendChild(ViewPlaylistText);
 }
+  
