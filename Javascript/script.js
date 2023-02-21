@@ -1,6 +1,8 @@
-//  * Imports the Local Database File
-import { CheckDataBase } from "./LocalStorage/DBCHECK.js";
+// * Imports a function that will retrieve any Playlists made from local storage
+import { RetrievePlayList } from "./LocalStorage/DBCHECK.js";
 
+// ! Calls the Retrieve PlayList Function
+RetrievePlayList();
 
 // * Input & Button Variables from HTML
 
@@ -9,16 +11,7 @@ const PlayListIconInput = document.getElementById("PlayListIconInput");
 const CreateBtn = document.getElementById("CreatePlayBtn");
 let PlayListID = 4;
 
-let NonJSONPlayListArrayOne = [];
-let NonJSONPlayListArrayTwo = [];
-let NonJSONPlayListArrayThree = [];
-
-let JSONStringPlayListArrayOne = [];
-let JSONStringPlayListArrayTwo = [];
-let JSONStringPlayListArrayThree = [];
-
 // * The function below executes a function that is located in the DBINIT File to see if the localstorage has any playlists in it
-CheckDataBase();
 
 function OnCreateClick() {
   // ! This Function sets the maximum amount of Playlists to THREE!
@@ -26,19 +19,19 @@ function OnCreateClick() {
   switch (PlayListID) {
     case 4:
       PlayListID -= 1;
-      CreatePlayList();
-      console.log("Playlist Created");
+      CreatePlayList(localStoageSave);
+      console.log("Playlist Created!");
       break;
 
     case 3:
       PlayListID -= 1;
-      CreatePlayList();
+      CreatePlayList(localStoageSave);
       console.log("Playlist Created");
       break;
 
     case 2:
       PlayListID -= 1;
-      CreatePlayList();
+      CreatePlayList(localStoageSave);
       console.log("Playlist Created");
       break;
 
@@ -48,7 +41,7 @@ function OnCreateClick() {
   }
 }
 
-function CreatePlayList() {
+function CreatePlayList(CallBack) {
   let TempIconValue = PlayListIconInput.value;
   let TempNameValue = PlayListNameInput.value;
 
@@ -78,41 +71,34 @@ function CreatePlayList() {
   NewPlayListContainer.appendChild(ViewPlayListLink);
   ViewPlayListLink.appendChild(ViewPlaylistText);
 
-  // * SAVE TO DATABASE (This Code Begins the process of saving data to Database & Moving it onto Global Scope)
+  CallBack(TempIconValue, TempNameValue);
+}
+
+const localStoageSave = (IconVal, IconName) => {
 
   switch (PlayListID) {
     case 3:
-      NewPlayListContainer.className = "PlayListOne";
-      NonJSONPlayListArrayOne.push(TempIconValue);
-      NonJSONPlayListArrayOne.push(TempNameValue);
-      JSONStringPlayListArrayOne = JSON.stringify(NonJSONPlayListArrayOne);
-      localStorage.setItem("PlayListOne", JSONStringPlayListArrayOne);
+      var NonJSONPlayList = new Array();
+      NonJSONPlayList.push(IconVal, IconName);
+      var JSONString = JSON.stringify(NonJSONPlayList);
+      localStorage.setItem("PlayListOne", JSONString);
       break;
 
-    case 2:
-      NewPlayListContainer.className = "PlayListTwo";
-      NonJSONPlayListArrayTwo.push(TempIconValue);
-      NonJSONPlayListArrayTwo.push(TempNameValue);
-      JSONStringPlayListArrayTwo = JSON.stringify(NonJSONPlayListArrayTwo);
-      localStorage.setItem("PlayListTwo", JSONStringPlayListArrayTwo);
+      case 2:
+      var NonJSONPlayList = new Array();
+      NonJSONPlayList.push(IconVal, IconName);
+      var JSONString = JSON.stringify(NonJSONPlayList);
+      localStorage.setItem("PlayListTwo", JSONString);
       break;
 
-    case 1:
-      NewPlayListContainer.className = "PlayListThree";
-      NonJSONPlayListArrayThree.push(TempIconValue);
-      NonJSONPlayListArrayThree.push(TempNameValue);
-      JSONStringPlayListArrayThree = JSON.stringify(NonJSONPlayListArrayThree);
-      localStorage.setItem("PlayListThree", JSONStringPlayListArrayThree);
+      case 1:
+      var NonJSONPlayList = new Array();
+      NonJSONPlayList.push(IconVal, IconName);
+      var JSONString = JSON.stringify(NonJSONPlayList);
+      localStorage.setItem("PlayListThree", JSONString);
       break;
   }
-}
 
-// * This Exported the JSON String Arrays to move to Local Database Processing
-
-export {
-  JSONStringPlayListArrayOne,
-  JSONStringPlayListArrayTwo,
-  JSONStringPlayListArrayThree,
 };
 
 CreateBtn.addEventListener("click", OnCreateClick);

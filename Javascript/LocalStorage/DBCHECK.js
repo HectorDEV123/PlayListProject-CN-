@@ -1,129 +1,112 @@
+export const RetrievePlayList = () => {
 
-import {
-  JSONStringPlayListArrayOne,
-  JSONStringPlayListArrayTwo,
-  JSONStringPlayListArrayThree,
-} from "../script.js";
+  const RestorePlayListOne = () => {
+    let LocalStorageGET = localStorage.getItem("PlayListOne");
+    let parsedArray = JSON.parse(LocalStorageGET);
 
-export function CheckDataBase() {
-  // * This IF Statements checks if the Local Database is Empty.
+    const NewPlayListContainer = document.createElement("div");
+    const NewPlayListIcon = document.createElement("img");
+    const NewPlayListName = document.createElement("h5");
+    const ViewPlaylistText = document.createElement("h6");
+    const ViewPlayListLink = document.createElement("a");
 
-  if (localStorage.length == 0) {
-    console.error("Local-Storage was checked and retrived nothing.");
-    localStorage.clear();
-  }
+    // * MODIFIES PLAYLIST VALUES
 
-  // * This ELSE IF Statement Checks if Local Database has 1 or more values. If any values have been detected this means that the LocalStorage has Playlist Data that can be restored
-  else if (localStorage.length >= 1 ) {
-    console.log("Poetential Playlists have been found.");
-    PlaylistOneRestore();
-    PlaylistTwoRestore();
-    PlaylistThreeRestore();
-  }
-}
+    NewPlayListIcon.src = parsedArray[0];
+    NewPlayListName.innerHTML = parsedArray[1];
+    NewPlayListContainer.id = "PlaylistCSS";
+    ViewPlaylistText.innerHTML = "Click to View!";
+    ViewPlayListLink.href = "../html/PlayOne.html";
+    ViewPlayListLink.setAttribute("EventTarget", "_blank");
+    NewPlayListContainer.className = "Container";
 
-function PlaylistOneRestore() {
-  const LocalStorageGET = localStorage.getItem("PlayListOne");
-  let ParsedArray = JSON.parse(LocalStorageGET);
+    // * DISPLAYS TO DOM
 
-  let PlayListImg = ParsedArray[0];
-  let PlayListName = ParsedArray[1];
+    document.body.appendChild(NewPlayListContainer);
+    NewPlayListContainer.appendChild(NewPlayListIcon);
+    NewPlayListContainer.appendChild(NewPlayListName);
+    NewPlayListContainer.appendChild(ViewPlayListLink);
+    ViewPlayListLink.appendChild(ViewPlaylistText);
+  };
 
-  console.log(JSONStringPlayListArrayOne);
+  const RestorePlayListTwo = () => {
+    let LocalStorageGET = localStorage.getItem("PlayListTwo");
+    let parsedArray = JSON.parse(LocalStorageGET);
 
-  // * The Constant Variables create the Playlist Container and its content.
+    const NewPlayListContainer = document.createElement("div");
+    const NewPlayListIcon = document.createElement("img");
+    const NewPlayListName = document.createElement("h5");
+    const ViewPlaylistText = document.createElement("h6");
+    const ViewPlayListLink = document.createElement("a");
 
-  const NewPlayListContainer = document.createElement("div");
-  const NewPlayListIcon = document.createElement("img");
-  const NewPlayListName = document.createElement("h5");
-  const ViewPlaylistText = document.createElement("h6");
-  const ViewPlayListLink = document.createElement("a");
+    // * MODIFIES PLAYLIST VALUES
 
-  // * Once Playlist Container has been made the code belows starts modifiying its Data.
+    NewPlayListIcon.src = parsedArray[0];
+    NewPlayListName.innerHTML = parsedArray[1];
+    NewPlayListContainer.id = "PlaylistCSS";
+    ViewPlaylistText.innerHTML = "Click to View!";
+    ViewPlayListLink.href = "../html/PlayOne.html";
+    ViewPlayListLink.setAttribute("EventTarget", "_blank");
+    NewPlayListContainer.className = "Container";
 
-  NewPlayListIcon.src = PlayListImg;
-  NewPlayListName.innerHTML = PlayListName;
-  NewPlayListContainer.id = "PlaylistCSS";
-  ViewPlaylistText.innerHTML = "Click to View!";
-  ViewPlayListLink.href = "../html/PlayOne.html";
-  ViewPlayListLink.setAttribute("EventTarget", "_blank");
+    // * DISPLAYS TO DOM
 
-  // * The Code Below Displays the PlayList to the Document Model
+    document.body.appendChild(NewPlayListContainer);
+    NewPlayListContainer.appendChild(NewPlayListIcon);
+    NewPlayListContainer.appendChild(NewPlayListName);
+    NewPlayListContainer.appendChild(ViewPlayListLink);
+    ViewPlayListLink.appendChild(ViewPlaylistText);
+  };
 
-  document.body.appendChild(NewPlayListContainer);
-  NewPlayListContainer.appendChild(NewPlayListIcon);
-  NewPlayListContainer.appendChild(NewPlayListName);
-  NewPlayListContainer.appendChild(ViewPlayListLink);
-  ViewPlayListLink.appendChild(ViewPlaylistText);
-}
+  const RestorePlayListThree = () => {
+    let LocalStorageGET = localStorage.getItem("PlayListThree");
+    let parsedArray = JSON.parse(LocalStorageGET);
 
-function PlaylistTwoRestore() {
-  const LocalStorageGET = localStorage.getItem("PlayListTwo");
-  const ParsedArray = JSON.parse(LocalStorageGET);
+    const NewPlayListContainer = document.createElement("div");
+    const NewPlayListIcon = document.createElement("img");
+    const NewPlayListName = document.createElement("h5");
+    const ViewPlaylistText = document.createElement("h6");
+    const ViewPlayListLink = document.createElement("a");
 
-  let PlayListImg = ParsedArray[0];
-  let PlayListName = ParsedArray[1];
+    // * MODIFIES PLAYLIST VALUES
 
-  console.log(JSONStringPlayListArrayOne);
+    NewPlayListIcon.src = parsedArray[0];
+    NewPlayListName.innerHTML = parsedArray[1];
+    NewPlayListContainer.id = "PlaylistCSS";
+    ViewPlaylistText.innerHTML = "Click to View!";
+    ViewPlayListLink.href = "../html/PlayOne.html";
+    ViewPlayListLink.setAttribute("EventTarget", "_blank");
+    NewPlayListContainer.className = "Container";
 
-  // * The Constant Variables create the Playlist Container and its content.
+    // * DISPLAYS TO DOM
 
-  const NewPlayListContainer = document.createElement("div");
-  const NewPlayListIcon = document.createElement("img");
-  const NewPlayListName = document.createElement("h5");
-  const ViewPlaylistText = document.createElement("h6");
-  const ViewPlayListLink = document.createElement("a");
+    document.body.appendChild(NewPlayListContainer);
+    NewPlayListContainer.appendChild(NewPlayListIcon);
+    NewPlayListContainer.appendChild(NewPlayListName);
+    NewPlayListContainer.appendChild(ViewPlayListLink);
+    ViewPlayListLink.appendChild(ViewPlaylistText);
+  };
 
-  // * Once Playlist Container has been made the code belows starts modifiying its Data.
-
-  NewPlayListIcon.src = PlayListImg;
-  NewPlayListName.innerHTML = PlayListName;
-  NewPlayListContainer.id = "PlaylistCSS";
-  ViewPlaylistText.innerHTML = "Click to View!";
-  ViewPlayListLink.href = "../html/PlayOne.html";
-  ViewPlayListLink.setAttribute("EventTarget", "_blank");
-
-  // * The Code Below Displays the PlayList to the Document Model
-
-  document.body.appendChild(NewPlayListContainer);
-  NewPlayListContainer.appendChild(NewPlayListIcon);
-  NewPlayListContainer.appendChild(NewPlayListName);
-  NewPlayListContainer.appendChild(ViewPlayListLink);
-  ViewPlayListLink.appendChild(ViewPlaylistText);
-}
-
-function PlaylistThreeRestore() {
-  const LocalStorageGET = localStorage.getItem("PlayListThree");
-  const ParsedArray = JSON.parse(LocalStorageGET);
-
-  let PlayListImg = ParsedArray[0];
-  let PlayListName = ParsedArray[1];
-
-  console.log(JSONStringPlayListArrayOne);
-
-  // * The Constant Variables create the Playlist Container and its content.
-
-  const NewPlayListContainer = document.createElement("div");
-  const NewPlayListIcon = document.createElement("img");
-  const NewPlayListName = document.createElement("h5");
-  const ViewPlaylistText = document.createElement("h6");
-  const ViewPlayListLink = document.createElement("a");
-
-  // * Once Playlist Container has been made the code belows starts modifiying its Data.
-
-  NewPlayListIcon.src = PlayListImg;
-  NewPlayListName.innerHTML = PlayListName;
-  NewPlayListContainer.id = "PlaylistCSS";
-  ViewPlaylistText.innerHTML = "Click to View!";
-  ViewPlayListLink.href = "../html/PlayOne.html";
-  ViewPlayListLink.setAttribute("EventTarget", "_blank");
-
-  // * The Code Below Displays the PlayList to the Document Model
-
-  document.body.appendChild(NewPlayListContainer);
-  NewPlayListContainer.appendChild(NewPlayListIcon);
-  NewPlayListContainer.appendChild(NewPlayListName);
-  NewPlayListContainer.appendChild(ViewPlayListLink);
-  ViewPlayListLink.appendChild(ViewPlaylistText);
-}
   
+  if (performance.navigation.type === 1) {
+    console.log("Attemping to recover Playlist");
+
+    if (localStorage.getItem("PlayListOne") === null) {
+      console.log("Could Not Retrive");
+    } else {
+      RestorePlayListOne();
+    }
+
+    if (localStorage.getItem("PlayListTwo") === null) {
+      console.log("Could Not Retrive");
+    } else {
+      RestorePlayListTwo();
+    }
+
+    if (localStorage.getItem("PlayListThree") === null) {
+      console.log("Could Not Retrive");
+    } else {
+      RestorePlayListThree();
+    }
+  }
+};
