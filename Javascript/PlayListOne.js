@@ -1,72 +1,84 @@
-const SongIconDOM = document.getElementById("PlayListSongIconInput");
-const SongNameDOM = document.getElementById("PlayListSongNameInput");
-const ArtistNameDOM = document.getElementById("PlayListArtistInput");
-const SongURLDOM = document.getElementById("PlayListURLInput");
-const AddSongDOM = document.getElementById("AddSongDOM");
-const ButtonFromDOM = document.getElementById("PlayButton");
-const iFrameFromDOM = document.getElementById("iframeDOM");
-let SongsArray = [];
-let KeyID;
+// ! DOM Variable from HTML
+
+let songIconInput = document.getElementById("SongIconInput");
+let songNameInput = document.getElementById("SongNameInput");
+let songArtistInput = document.getElementById("SongArtistInput");
+let songURLInput = document.getElementById("SongURLInput");
+let AddSongBtn = document.getElementById("CreatePlayBtn");
+
+// * The code below makes the new array to be in the global scope and pushes null to the indexOf zero
+
+let NumberID = 0;
+let newArr = new Array();
+newArr.push("Null");
 
 
-function CreateSong() {
-  // * Temporary Values
+const AddSongToList = (CallBack) => {
+  // * Temp Value
 
-  let TempValueSongIcon = SongIconDOM.value;
-  let TempValueSongName = SongNameDOM.value;
-  let TempValueArtistName = ArtistNameDOM.value;
-  let TempURLValue = SongURLDOM.value;
+  let TempSongIcon = songIconInput.value;
+  let TempNameInput = songNameInput.value;
+  let TempArtistInput = songArtistInput.value;
 
-  // ! Creates New Element for each song
+  // ! DOM Elements
 
   const NewSongContainer = document.createElement("div");
   const NewSongIconContainer = document.createElement("div");
   const NewSongIcon = document.createElement("img");
-  const NewSongName = document.createElement("h5");
   const NewSongArtistName = document.createElement("h5");
-  const NewPlayButtonLink = document.createElement("a");
-  const PlayButton = document.createElement("button");
-  const NewSongDivider = document.createElement("div");
+  const NewSongName = document.createElement("h5");
+  const SongDivider = document.createElement("div");
 
-  // * Update Inner HTML
+  // * Updates IDs & Classes
 
-  NewSongIcon.src = TempValueSongIcon;
-  NewSongName.innerHTML = TempValueSongName;
-  NewSongArtistName.innerHTML = TempValueArtistName;
-  PlayButton.innerHTML = "Click to Play";
-  // NewPlayButtonLink.href = TempURLValue
+  NewSongContainer.className = "Song-Container";
+  NewSongIconContainer.className = "ImageContainer";
+  NewSongIcon.className = "SongIcon";
+  NewSongArtistName.className = "ArtistName";
+  NewSongName.className = "SongName";
+  SongDivider.className = "divider";
 
-  // * Assigns Classes & IDs
+  // * Update INNER HTML, SRC & HREF
 
-  NewSongIconContainer.className = "SongIconContainer";
-  NewSongIcon.id = "SongIconID";
-  NewSongName.id = "SongNameID";
-  NewSongArtistName.id = "ArtistNameID";
-  NewSongDivider.className = "songDivider";
-  PlayButton.id = "PlayButton";
-  NewPlayButtonLink.id = "LinkSRC";
+  NewSongIcon.src = TempSongIcon;
+  NewSongName.innerHTML = TempNameInput;
+  NewSongArtistName.innerHTML = TempArtistInput;
 
-  // * Container Appendiction
+  // Append to DOM
 
   document.body.appendChild(NewSongContainer);
   NewSongContainer.appendChild(NewSongIconContainer);
   NewSongIconContainer.appendChild(NewSongIcon);
-  NewSongContainer.appendChild(NewSongName);
   NewSongContainer.appendChild(NewSongArtistName);
-  document.body.appendChild(NewSongDivider);
-  NewSongContainer.appendChild(NewPlayButtonLink);
-  NewPlayButtonLink.appendChild(PlayButton);
+  NewSongContainer.appendChild(NewSongName);
+  document.body.appendChild(SongDivider);
 
-  const GetElement = document.getElementById("PlayButton");
+  LocalStorageAdd(TempSongIcon, TempNameInput, TempArtistInput);
+};
 
-  GetElement.onclick = function () {
-    iFrameFromDOM.src = "httpsss-1je-1w";
-  };
+const LocalStorageAdd = (IconVal, IconName, ArtistName) => {
+  NumberID += 1;
+
+  class AddSong {
+    constructor(IconVal, IconName, ArtistName) {
+      this.iconUrl = IconVal;
+      this.iconName = IconName;
+      this.artistName = ArtistName;
+    }
+  }
+
+  newArr.push(NumberID);
+
+  newArr[NumberID] = new AddSong(IconVal, IconName, ArtistName);
+
+  console.log(newArr[NumberID]);
+  console.log(NumberID);
+  console.log(newArr);
+
+  let JSONArray = JSON.stringify(newArr);
+
+  localStorage.setItem("SavedSongs", JSONArray);
+};
 
 
-
-}
-
-
-
-AddSongDOM.addEventListener("click", CreateSong);
+AddSongBtn.addEventListener("click", AddSongToList);

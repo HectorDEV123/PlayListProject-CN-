@@ -1,13 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap");
 
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap');
-
-
-.createPlaylistCont label {
+.createSongCont label {
   margin: 5px 10px 5px 0;
   box-sizing: border-box;
 }
 
-.createPlaylistCont input {
+.createSongCont input { 
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
@@ -15,23 +13,18 @@
   border: 1px solid #ddd;
 }
 
-.createPlaylistCont button {
+.createSongCont button {
   padding: 10px 20px;
   background-color: dodgerblue;
   border: 1px solid #ddd;
   color: white;
 }
 
-.createPlaylistCont button:hover {
+.createSongCont button:hover {
   background-color: royalblue;
 }
 
-.divider {
-  height: 20px;
 
-  background-color: greenyellow;
-  border: 1px solid greenyellow;
-}
 
 .Container > img {
   height: 175px;
@@ -46,7 +39,7 @@
   font-family: "IBM Plex Mono", monospace;
 }
 
-.createPlaylistCont input {
+.createSongCont input {
   margin: 20px;
 }
 
@@ -62,93 +55,46 @@ body {
   height: 100%;
 }
 
-/* Song CSS */
-
-.divider {
-  margin-bottom: 0px;
+.songDivider{
+  height: 20px;
+  background-color: greenyellow;
 }
 
-#SongIconID {
+.Song-Container {
+  display: inline-block;
+}
+
+.ImageContainer{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.ArtistName{
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  margin: 70px;
+}
+
+.SongName{
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  vertical-align: middle;
+  font-size: 20px;
+  margin: 70px;
+}
+
+.SongIcon{
   height: 100px;
   width: 100px;
-  margin: 20px;
-  display: inline-block;
-  vertical-align: middle;
+  border-radius: 15px;
 }
 
-#SongNameID {
-  display: inline-block;
-  margin: 50px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 20px;
-  vertical-align: middle;
-  margin-right: 50px;
-}
-
-#ArtistNameID {
-  display: inline-block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 20px;
-  vertical-align: middle;
-  margin-left: 90px;
-}
-
-img {
-  height: 100px;
-  height: 175px;
-  margin-left: 70px;
-  margin: 40px;
-  border-radius: 5px;
-}
-
-#ImgCont {
-  display: inline-block;
-}
-
-.songDivider {
-  height: 10px;
+.divider{
+  height: 15px;
   width: 100%;
-  background-color: greenyellow
-}
-
-.SongIconContainer{
-  display: inline-block;
-}
-
-#PlayButton{
-  padding: 20px 30px;
-  background-color: dodgerblue;
-  border: 1px solid #ddd;
-  color: white;
-  text-align: right;
-  margin-left: 60%;
-  border-radius: 10px;
-}
-
-#PlayButton:hover {
-  background-color: royalblue;
-}
-
-.iframe-player{
-  height: 210px;
-  width: 900px;
-  background-color: aquamarine;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
-
-
-
-.nextSong{
-  height: 201px;
-  width: 200px;
-  background-color: yellow;
-  display: inline-block;
-  position: relative;
-  bottom: 210px;
-  left: 1000px;
-  background-color: black;
-  border-radius: 10px;
-  
+  background-color: greenyellow;
 }
