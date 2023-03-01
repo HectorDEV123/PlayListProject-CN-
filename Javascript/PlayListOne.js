@@ -8,10 +8,6 @@ let AddSongBtn = document.getElementById("CreatePlayBtn");
 
 // * The code below makes the new array to be in the global scope and pushes null to the indexOf zero
 
-let NumberID = 0;
-let newArr = new Array();
-newArr.push("Null");
-
 
 const AddSongToList = (CallBack) => {
   // * Temp Value
@@ -19,6 +15,7 @@ const AddSongToList = (CallBack) => {
   let TempSongIcon = songIconInput.value;
   let TempNameInput = songNameInput.value;
   let TempArtistInput = songArtistInput.value;
+  let TempSongURL = songURLInput.value;
 
   // ! DOM Elements
 
@@ -28,6 +25,8 @@ const AddSongToList = (CallBack) => {
   const NewSongArtistName = document.createElement("h5");
   const NewSongName = document.createElement("h5");
   const SongDivider = document.createElement("div");
+  const newSongHypherLink = document.createElement("a");
+  const newSongLinkBtn = document.createElement("button")
 
   // * Updates IDs & Classes
 
@@ -37,12 +36,16 @@ const AddSongToList = (CallBack) => {
   NewSongArtistName.className = "ArtistName";
   NewSongName.className = "SongName";
   SongDivider.className = "divider";
+  newSongLinkBtn.className = "PlayBtn"
 
   // * Update INNER HTML, SRC & HREF
 
   NewSongIcon.src = TempSongIcon;
   NewSongName.innerHTML = TempNameInput;
   NewSongArtistName.innerHTML = TempArtistInput;
+  newSongHypherLink.href = TempSongURL;
+  newSongLinkBtn.innerHTML = "Click to Play Song"
+  newSongHypherLink.setAttribute("target", "blank")
 
   // Append to DOM
 
@@ -52,33 +55,12 @@ const AddSongToList = (CallBack) => {
   NewSongContainer.appendChild(NewSongArtistName);
   NewSongContainer.appendChild(NewSongName);
   document.body.appendChild(SongDivider);
+  NewSongContainer.appendChild(newSongHypherLink);
+  newSongHypherLink.appendChild(newSongLinkBtn)
 
-  LocalStorageAdd(TempSongIcon, TempNameInput, TempArtistInput);
+
 };
 
-const LocalStorageAdd = (IconVal, IconName, ArtistName) => {
-  NumberID += 1;
-
-  class AddSong {
-    constructor(IconVal, IconName, ArtistName) {
-      this.iconUrl = IconVal;
-      this.iconName = IconName;
-      this.artistName = ArtistName;
-    }
-  }
-
-  newArr.push(NumberID);
-
-  newArr[NumberID] = new AddSong(IconVal, IconName, ArtistName);
-
-  console.log(newArr[NumberID]);
-  console.log(NumberID);
-  console.log(newArr);
-
-  let JSONArray = JSON.stringify(newArr);
-
-  localStorage.setItem("SavedSongs", JSONArray);
-};
 
 
 AddSongBtn.addEventListener("click", AddSongToList);

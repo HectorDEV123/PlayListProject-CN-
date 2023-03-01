@@ -1,5 +1,4 @@
 export const RetrievePlayList = () => {
-
   const RestorePlayListOne = () => {
     let LocalStorageGET = localStorage.getItem("PlayListOne");
     let parsedArray = JSON.parse(LocalStorageGET);
@@ -87,12 +86,11 @@ export const RetrievePlayList = () => {
     ViewPlayListLink.appendChild(ViewPlaylistText);
   };
 
-  
   if (performance.navigation.type === 1) {
     console.log("Attemping to recover Playlist");
 
     if (localStorage.getItem("PlayListOne") === null) {
-      console.log("Could Not Retrive");
+      console.log("Could Not Retrive(");
     } else {
       RestorePlayListOne();
     }
@@ -111,7 +109,3 @@ export const RetrievePlayList = () => {
   }
 };
 
-export const RetrieveSongs = () => {
-
-  
-}

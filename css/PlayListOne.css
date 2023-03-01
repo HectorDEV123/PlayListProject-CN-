@@ -98,3 +98,11 @@ body {
   width: 100%;
   background-color: greenyellow;
 }
+
+.PlayBtn{
+  margin-left: 1220px;
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
